@@ -1,7 +1,6 @@
 import pymysql
 import config
 
-
 def create_connection():
     """创建数据库连接"""
     try:
@@ -106,6 +105,9 @@ def check_login(username: str, key: str) -> bool:
     finally:
         conn.close()
 
+#获取用户画像
+def get_user_profile_data(user_id):
+    pass
 
 if __name__ == '__main__':
     User_form()

@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect
+from flask import Blueprint, render_template, request, redirect, session, url_for
 from app.models import register_user, check_login
 """
 目前登录界面还缺少与其他界面的隔离
@@ -15,14 +15,26 @@ def login_page():
     return render_template('login.html')
 
 # 登录处理逻辑
-@bp.route('/submit', methods=['POST'])
+@bp.route('/submit', methods=['POST', 'GET'])
 def login_submit():
-    id = request.form.get('id')
-    key = request.form.get('key')
-    if check_login(id, key):
-        return render_template('home.html')
-    else:
-        return "登录失败，请检查用户名或密码"
+    if request.method == 'POST':
+        id = request.form.get('id')
+        key = request.form.get('key')
+        if check_login(id, key):
+            session.permanent = True
+            session['user_id'] = id
+            return render_template('home.html')
+        else:
+            return "登录失败，请检查用户名或密码"
+
+    elif request.method == 'GET':
+        # 如果 session 中有用户信息，就跳转主页
+        if 'user_id' in session:
+            return render_template('home.html')
+        else:
+            # 否则跳转登录页或返回一个提示
+            return redirect(url_for('auth.login'))  # 假设你的登录页是这个
+
 
 # 注册页面
 @bp.route('/register')
@@ -30,7 +42,7 @@ def register_page():
     return render_template('register.html')
 
 # 注册处理逻辑
-@bp.route('/do_register', methods=['POST'])
+@bp.route('/do_register', methods=['POST','GET'])
 def register_submit():
     id = request.form.get('id')
     key = request.form.get('key')
@@ -39,3 +51,9 @@ def register_submit():
         return redirect('/auth/login')  # 注册成功跳转登录页
     else:
         return "注册失败，用户可能已存在"
+
+@bp.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('auth.login_page'))
+
