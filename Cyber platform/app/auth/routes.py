@@ -1,6 +1,12 @@
 from flask import Blueprint, render_template, request, redirect
 from app.models import register_user, check_login
-
+"""
+目前登录界面还缺少与其他界面的隔离
+1. 登录无需session即可访问
+2. 登录后给用户一个时效的session 用户登录时session始终维持，过了多久session失效果
+3. 登录密码的转化加密算法
+4. 登录时的账号密码字符限制防止sql注入
+"""
 bp = Blueprint('auth', __name__, url_prefix='/auth', template_folder='templates')
 
 # 登录页面
