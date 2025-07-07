@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+    <h2>用户登录</h2>
+    <form method="POST" action="/auth/submit">
+        <label>用户名:</label><br>
+        <input type="text" name="id" required><br><br>
+
+        <label>密码:</label><br>
+        <input type="password" name="key" required><br><br>
+
+        <button type="submit">登录</button>
+    </form>
+
+    <p>没有账号？<a href="/auth/register">点击注册</a></p>
+</body>
+</html>

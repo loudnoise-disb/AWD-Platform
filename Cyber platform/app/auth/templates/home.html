@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>CTF 平台首页</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* 整体背景 */
+    body {
+      background-color: #87CEEB;   /* 天空蓝 */
+      color: #fff;
+    }
+    /* 导航栏 */
+    .navbar {
+      background-color: rgba(0, 123, 255, 0.8);  /* 半透明深蓝 */
+    }
+    .nav-link {
+      color: #fff !important;
+    }
+    /* 分类按钮 */
+    .btn-category {
+      background-color: #fff;
+      color: #007bff;
+      border: none;
+      margin: 0 5px;
+    }
+    .btn-category.active,
+    .btn-category:hover {
+      background-color: #0056b3;
+      color: #fff;
+    }
+    /* 卡片 */
+    .card {
+      background-color: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: .5rem;
+    }
+    .card-title, .card-text {
+      color: #333;
+    }
+    .badge {
+      background-color: #007bff;
+    }
+    .score {
+      color: #007bff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部导航栏 -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" href="#">CTF 平台</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">场景配置</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">实时推演</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">挑战项目</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">评估报告</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">个人中心</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">退出登录</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <!-- 标题 & 筛选按钮 -->
+    <div class="text-center mb-4">
+      <h1>CTF 密钥对 RRE</h1>
+      <div class="btn-group mt-3" role="group">
+        <button type="button" class="btn btn-category active">全部</button>
+        <button type="button" class="btn btn-category">Web 安全</button>
+        <button type="button" class="btn btn-category">逆向工程</button>
+        <button type="button" class="btn btn-category">二进制漏洞</button>
+        <button type="button" class="btn btn-category">密码学</button>
+      </div>
+    </div>
+
+    <!-- 挑战列表 -->
+    <div class="row g-4">
+      <!-- 示例卡片 1 -->
+      <div class="col-md-4">
+        <div class="card p-3 h-100">
+          <div class="d-flex justify-content-between">
+            <h5 class="card-title">网络22 WPwWebii\</h5>
+            <span class="score">100 分</span>
+          </div>
+          <p class="card-text">
+            <span class="badge">简单</span>
+            发现并利用 SQL 注入漏洞。
+          </p>
+          <a href="#" class="btn btn-primary">部署挑战</a>
+        </div>
+      </div>
+      <!-- 示例卡片 2 -->
+      <div class="col-md-4">
+        <div class="card p-3 h-100">
+          <div class="d-flex justify-content-between">
+            <h5 class="card-title">基础逆向</h5>
+            <span class="score">200 分</span>
+          </div>
+          <p class="card-text">
+            <span class="badge">中等</span>
+            美丽。惠格。
+          </p>
+          <a href="#" class="btn btn-primary">部署挑战</a>
+        </div>
+      </div>
+      <!-- 示例卡片 3 -->
+      <div class="col-md-4">
+        <div class="card p-3 h-100">
+          <div class="d-flex justify-content-between">
+            <h5 class="card-title">密码学入门</h5>
+            <span class="score">150 分</span>
+          </div>
+          <p class="card-text">
+            <span class="badge">简单</span>
+            破解简单加密算法。
+          </p>
+          <a href="#" class="btn btn-primary">部署挑战</a>
+        </div>
+      </div>
+      <!-- 更多卡片… -->
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

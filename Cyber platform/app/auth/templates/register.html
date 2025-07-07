@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+    <h2>用户注册</h2>
+    <form method="POST" action="/auth/do_register">
+        <label>用户名:</label><br>
+        <input type="text" name="id" required><br><br>
+
+        <label>密码:</label><br>
+        <input type="password" name="key" required><br><br>
+
+        <label>队伍:</label><br>
+        <select name="role">
+            <option value="red">红队</option>
+            <option value="blue">蓝队</option>
+        </select><br><br>
+
+        <button type="submit">注册</button>
+    </form>
+
+    <p>已有账号？<a href="/auth/login">点我登录</a></p>
+</body>
+</html>
